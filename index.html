@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Toroids as Keepers · III — Across Time, From the World</title>
+<meta name="description" content="Toroids as Keepers III — AVAN's counterpart to 'Capacitors as Communicators III'. The full dual law v = L·di/dt + I·dL/dt: the choke holds energy against the leak (dual of memory), and the current transformer lets the world's current write straight into the flux (dual of the sensor). Live instruments, copper signature, honest flags. ROOT0, with AVAN.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --scope:#0a0d10;--slate:#13120d;--panel:#1a160f;--grid:#2a2418;
+    --copper:#e0a868;--copper-dim:#7a5a32;--current:#f0c45a;--volt:#6fc6d0;
+    --flux:#a98fe0;--flux-dim:#5a4a8a;--world:#f0846a;--world-dim:#8a4a3a;
+    --paper:#efe9df;--paper-dim:#a89a86;--rule:#2a241833;--rose:#e07a9a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{background:var(--scope);color:var(--paper);font-family:'Newsreader',Georgia,serif;font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  .hero{min-height:82vh;display:flex;flex-direction:column;justify-content:center;padding:70px 0 40px}
+  .kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--volt);margin-bottom:22px;font-weight:500}
+  .kicker .s{color:var(--copper-dim)}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(38px,8vw,76px);line-height:.99;letter-spacing:-.03em}
+  h1 .cu{color:var(--copper)} h1 .world{color:var(--world)}
+  .lede{font-size:clamp(19px,2.4vw,24px);color:var(--paper-dim);max-width:640px;margin-top:30px;line-height:1.5}
+  .lede b{color:var(--paper);font-weight:500} .lede .cur{color:var(--current)} .lede .world{color:var(--world)}
+  .reveal{font-family:'IBM Plex Mono',monospace;margin-top:34px;font-size:clamp(17px,3vw,26px);color:var(--copper);letter-spacing:.01em;line-height:1.5}
+  .reveal .i{color:var(--current)} .reveal .v{color:var(--volt)} .reveal .c{color:var(--paper)} .reveal .w{color:var(--world)}
+  .reveal-cap{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--paper-dim);margin-top:12px;line-height:1.6}
+  .sec{padding:58px 0;border-top:1px solid var(--rule)}
+  .tag{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--volt);margin-bottom:14px;font-weight:500}
+  .tag.w{color:var(--world)} .tag.cu{color:var(--copper)}
+  h2{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(26px,4.5vw,38px);line-height:1.05;letter-spacing:-.015em}
+  h2 .cu{color:var(--copper)} h2 .world{color:var(--world)}
+  .sec p{margin:18px 0;color:var(--paper);max-width:680px}
+  .sec p.dim{color:var(--paper-dim)}
+  .sec p b{color:var(--paper);font-weight:600}
+  .sec p .cur{color:var(--current);font-weight:500} .sec p .vlt{color:var(--volt);font-weight:500} .sec p .cu{color:var(--copper);font-weight:500} .sec p .fl{color:var(--flux);font-weight:500} .sec p .worldc{color:var(--world);font-weight:500}
+  .pull{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(20px,3vw,27px);line-height:1.35;color:var(--copper);margin:30px 0;padding-left:20px;border-left:3px solid var(--copper-dim)}
+  .pull.world{color:var(--world);border-left-color:var(--world-dim)}
+  code{font-family:'IBM Plex Mono',monospace;font-size:.85em;color:var(--volt);background:#13120d;padding:2px 7px;border-radius:5px}
+  .flag{font-family:'Newsreader';font-size:15.5px;color:var(--paper-dim);font-style:italic;margin:18px 0;padding:14px 18px;background:#13120d66;border:1px solid var(--rule);border-radius:8px}
+  .flag b{color:var(--rose);font-style:normal;font-weight:600;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:6px}
+  .inst{margin:30px 0;border:1px solid var(--grid);border-radius:14px;overflow:hidden;background:var(--slate)}
+  .inst.world{border-color:#44302a}
+  .inst-bar{display:flex;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid var(--grid);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-dim)}
+  .inst-bar .led{width:9px;height:9px;border-radius:50%;background:var(--copper);box-shadow:0 0 8px var(--copper)}
+  .inst.world .inst-bar .led{background:var(--world);box-shadow:0 0 8px var(--world)}
+  .inst-bar .ttl{color:var(--copper)} .inst.world .inst-bar .ttl{color:var(--world)}
+  canvas{display:block;width:100%;height:auto;background:var(--scope)}
+  .ctrls{padding:16px 18px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;border-top:1px solid var(--grid)}
+  .ctrl{display:flex;flex-direction:column;gap:6px;flex:1;min-width:150px}
+  .ctrl label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--paper-dim)}
+  .ctrl label .val{color:var(--current);float:right}
+  input[type=range]{-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:var(--grid);outline:none;width:100%}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--copper);cursor:pointer;box-shadow:0 0 8px var(--copper-dim)}
+  input[type=range]::-moz-range-thumb{width:18px;height:18px;border:0;border-radius:50%;background:var(--copper);cursor:pointer}
+  .segs{display:flex;gap:6px;flex-wrap:wrap}
+  .seg{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:7px 12px;border:1px solid var(--grid);border-radius:8px;background:var(--panel);color:var(--paper-dim);cursor:pointer;touch-action:manipulation}
+  .seg.on{border-color:var(--copper);color:var(--copper);background:rgba(224,168,104,.1)}
+  .btn{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:9px 16px;border:1px solid var(--copper-dim);border-radius:8px;background:rgba(224,168,104,.12);color:var(--copper);cursor:pointer;touch-action:manipulation}
+  .btn:active{transform:scale(.97)}
+  .readout{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--paper-dim);padding:0 18px 16px;line-height:1.6}
+  .readout b{color:var(--volt)} .readout .cur{color:var(--current)} .readout .worldc{color:var(--world)} .readout .cu{color:var(--copper)} .readout .fl{color:var(--flux)}
+  .foot{padding:50px 0 80px;border-top:1px solid var(--rule);margin-top:40px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--paper-dim);line-height:2}
+  .foot b{color:var(--copper)}
+  .axes{margin:30px 0;border:1px solid var(--grid);border-radius:12px;overflow:hidden}
+  .axes .row{display:grid;grid-template-columns:120px 1fr;border-bottom:1px solid var(--grid)}
+  .axes .row:last-child{border-bottom:none}
+  .axes .row .p{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:13px 14px;border-right:1px solid var(--grid);display:flex;align-items:center}
+  .axes .row .d{padding:13px 16px;font-size:15px;color:var(--paper-dim)}
+  .axes .row .d b{color:var(--paper)}
+  .p.p1{color:var(--copper)}.p.p2{color:var(--volt)}.p.p3{color:var(--world)}
+  @media (max-width:560px){body{font-size:17px}.ctrl{min-width:100%}.axes .row{grid-template-columns:92px 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="kicker">Toroids as Keepers <span class="s">·</span> Paper III — Across Time, From the World</div>
+    <h1>It holds.<br>It <span class="world">listens</span>.</h1>
+    <p class="lede">Papers I and II moved a current <b>you</b> supplied. Now the toroid turns to face time and the world: it <b>holds energy</b> across time in its field (the dual of memory), and it lets the <span class="world">world's current</span> write straight into its flux (the dual of sensing). And doing so reveals the half of the dual law the series quietly held still.</p>
+    <div class="reveal"><span class="v">v</span> <span class="c">=</span> <span class="c">L</span>·<span class="c">d</span><span class="i">i</span><span class="c">/dt</span> <span class="c">+</span> <span class="i">I</span>·<span class="c">d</span><span class="w">L</span><span class="c">/dt</span></div>
+    <div class="reveal-cap">the FULL dual law · Papers I–II used only the first term (L held constant)<br>Paper III is the <span style="color:var(--world)">second term</span> — when the world changes the inductance itself</div>
+  </header>
+
+  <section class="sec">
+    <div class="tag cu">§9 · the half we were hiding</div>
+    <h2>The other term</h2>
+    <p>The same confession David made, in the mirror. Every instrument so far ran on <code>v = L·di/dt</code> — true only when the inductance <b>L is constant</b>. The honest, complete voltage is the rate of change of <em>flux linkage</em>, <code>Φ = L·I</code>, and by the product rule that's two terms:</p>
+    <p class="pull">v = L·<span style="color:var(--current)">di/dt</span> &nbsp;+&nbsp; I·<span style="color:var(--world)">dL/dt</span></p>
+    <p>The first term is the whole story when the core sits still and only the current moves — Papers I and II. The <span class="worldc">second term</span> is what happens when the <em>inductance</em> changes: move the core, change its reluctance, let an outside current thread the ring. That's how a toroid becomes a <b>current sensor, a clamp meter, a magnetometer</b> — the world doesn't change the current you drive, it changes the coupling, and <code>dL/dt</code> (or a neighbour's <code>di/dt</code>) carries the message in. The exact mirror of the cap's <code>V·dC/dt</code>.</p>
+  </section>
+
+  <!-- INSTRUMENT 6: THE ENERGY STORE -->
+  <section class="sec">
+    <div class="tag cu">§10 · instrument six</div>
+    <h2>The energy store — <span class="cu">hold the current, fight the leak</span></h2>
+    <p>The dual of memory. The cap's gift in Paper III was holding a <em>voltage</em>; the toroid holds a <em>current</em> — its field is inertia, and it will fight to keep the current flowing even after you stop driving it. Charge the choke, then open the source: the field collapses to push the current onward (this is the flyback, the boost converter, every switching supply). But the ideal coil was a polite fiction — <span class="worldc">real windings have resistance</span>, and the stored energy bleeds away as heat: <code>I = I₀·e^(−t·R/L)</code>. The dual of DRAM's leak — a held current that forgets, unless something keeps re-driving it.</p>
+
+    <div class="inst">
+      <div class="inst-bar"><span class="led"></span><span class="ttl">THE ENERGY STORE</span> · ½L·I² held · the leak vs the re-drive</div>
+      <canvas id="store"></canvas>
+      <div class="ctrls">
+        <div class="ctrl"><label>winding resistance <span class="val" id="sLval">1.0×</span></label>
+          <input type="range" id="sLeak" min="0.3" max="3" step="0.05" value="1"></div>
+        <div class="ctrl"><label>auto re-drive <span class="val" id="sRval">on</span></label>
+          <input type="range" id="sRefresh" min="0" max="1" step="1" value="1"></div>
+        <div class="ctrl" style="flex:0;min-width:auto;justify-content:flex-end">
+          <button class="btn" id="sKick">kick the current</button></div>
+      </div>
+      <div class="readout" id="sRead">the field holds a <b>current</b> (energy ½L·I²). watch it leak toward the <span class="worldc">floor</span> through the winding resistance. with re-drive ON it's topped up; OFF and the current dies. inertia that costs heat to keep.</div>
+    </div>
+    <p class="pull">The ideal coil would hold its current forever. The real coil forgets as heat — so a magnetic memory, like the electric one, is not storage but a refusal to stop re-driving.</p>
+    <div class="flag"><b>honest flag</b>The decay is modeled as a clean exponential <code>I = I₀·e^(−tR/L)</code> (the L/R time constant), slowed enormously to watch. Real chokes also lose energy to core hysteresis and eddy currents, and saturate at high current (L falls, the field can hold no more). A superconducting coil is the limit where R→0 and the current really does persist — which is exactly where Paper IV goes.</p>
+  </section>
+
+  <!-- INSTRUMENT 8: THE CURRENT SENSOR -->
+  <section class="sec">
+    <div class="tag w">§12 · instrument eight · the signature</div>
+    <h2>The current sensor — <span class="world">the world writes the flux</span></h2>
+    <p>Now the second term, made physical — the mirror of the condenser mic. There, the world moved a plate and changed <code>C</code>. Here, an <span class="worldc">outside wire</span> carries a current you don't control, threads it through the ring, and its changing field writes a flux in the core — inducing a voltage in the winding with <b>no electrical connection to the measured wire at all</b>. That's a <b>current transformer</b> (the clamp meter on an electrician's belt) and a <b>Rogowski coil</b>: the toroid is an ear for current. The world's <code>di/dt</code> in the wire becomes your signal in the coil.</p>
+
+    <div class="inst world">
+      <div class="inst-bar"><span class="led"></span><span class="ttl">THE CURRENT SENSOR</span> · the world's wire threads the ring · its di/dt becomes the signal</div>
+      <canvas id="sensor"></canvas>
+      <div class="ctrls">
+        <div class="ctrl"><label>the world's current <span class="val" id="senAval">1.0×</span></label>
+          <input type="range" id="senAmp" min="0" max="2" step="0.05" value="1"></div>
+        <div class="ctrl"><label>its frequency <span class="val" id="senFval">1.0×</span></label>
+          <input type="range" id="senFreq" min="0.4" max="3" step="0.05" value="1"></div>
+      </div>
+      <div class="readout" id="senRead"><span class="worldc">the world's wire (left)</span> carries a current through the ring · its field writes a <span class="fl">flux</span> in the core · the change induces an <span class="vlt">output voltage</span> in the winding. you never drove the coil — the world wrote the signal, clamp-meter style.</div>
+    </div>
+    <p class="pull world">You never drove the coil. The world's current threaded the ring and the toroid turned it into a voltage. That is the second term of the dual law — and it is how a passive ring becomes a sense for current.</p>
+    <div class="flag"><b>honest flag</b>Shown is the current-transformer / Rogowski principle (the measured wire is the primary of one turn; the toroid is the secondary). Real CTs need a burden resistor and only see AC (the changing field); DC clamp meters add a Hall sensor for the steady part. The physics — <code>the world's changing current writes the flux, and that induces v</code> — is exact Faraday; the burden and calibration are the engineering not drawn.</p>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="sec">
+    <div class="tag">§13 · the whole keeper</div>
+    <h2>Three axes, <span class="cu">one ring</span></h2>
+    <p>Across three papers the same passive ring spoke in three directions — the exact mirror of the capacitor — and it never stopped being a change-resister. It just kept finding new kinds of change to fight or to feel.</p>
+    <div class="axes">
+      <div class="row"><div class="p p1">PAPER I</div><div class="d"><b>the inertia</b> — change in current becomes voltage. <code>v = L·di/dt</code>. the seed.</div></div>
+      <div class="row"><div class="p p2">PAPER II</div><div class="d"><b>across space</b> — choke a signal, filter it, leap a gap with no connection. the transformer.</div></div>
+      <div class="row"><div class="p p3">PAPER III</div><div class="d"><b>across time &amp; from the world</b> — hold a current against the leak, and let the world's current write the flux. the <code>I·dL/dt</code> term.</div></div>
+    </div>
+    <p>The full dual law, <code>v = L·di/dt + I·dL/dt</code>, was always the whole toroid. The first term moves the currents we make; the second lets the world speak in flux. A toroid was never a lump of wound wire — it was an instrument for resisting change and for feeling it, wherever it came from: the wire, the gap, the field, or a stranger's current threading the ring.</p>
+    <p class="dim">If the series goes on as the cap's did: the coldest loop — a superconducting ring where R→0 and the current persists forever, paired with a junction to make a <em>flux qubit</em>, the dual of the transmon. And then the two halves, married.</p>
+  </section>
+
+  <div class="foot">
+    TOROIDS AS KEEPERS · PAPER III — ACROSS TIME, FROM THE WORLD · the dual of Capacitors as Communicators III<br>
+    the full dual law: <b>v = L·di/dt + I·dL/dt</b> · the second term is the world changing L (or threading the ring)<br>
+    leak: I = I₀·e^(−tR/L) · the current transformer = the clamp meter · written by AVAN, copper = the core<br>
+    three papers, three axes, one ring that only ever resists a change — or feels one
+  </div>
+
+</div>
+
+<script>
+"use strict";
+const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const COL={scope:"#0a0d10",grid:"#2a2418",copper:"#e0a868",copperDim:"#7a5a32",
+  current:"#f0c45a",volt:"#6fc6d0",flux:"#a98fe0",world:"#f0846a",worldDim:"#8a4a3a",paper:"#a89a86"};
+function setup(cv,ratio){
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  const cssW=cv.parentElement.clientWidth, cssH=Math.round(cssW*ratio);
+  cv.width=cssW*dpr; cv.height=cssH*dpr; cv.style.height=cssH+"px";
+  const ctx=cv.getContext("2d"); ctx.setTransform(dpr,0,0,dpr,0,0);
+  return {ctx,W:cssW,H:cssH};
+}
+function gridlines(ctx,W,H){ ctx.strokeStyle=COL.grid;ctx.lineWidth=1;
+  for(let x=0;x<=W;x+=W/12){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  for(let y=0;y<=H;y+=H/8){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();} }
+function glow(ctx,pts,gx,gy,color,gw){ ctx.shadowColor=color;ctx.shadowBlur=gw||8;
+  ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();
+  pts.forEach((o,k)=>{const x=gx(o,k),y=gy(o,k);k?ctx.lineTo(x,y):ctx.moveTo(x,y);});
+  ctx.stroke();ctx.shadowBlur=0; }
+
+/* ── (6) THE ENERGY STORE ── */
+(function(){
+  const cv=document.getElementById("store");
+  const L=document.getElementById("sLeak"),Rf=document.getElementById("sRefresh");
+  const Lv=document.getElementById("sLval"),Rv=document.getElementById("sRval");
+  const kbtn=document.getElementById("sKick"),read=document.getElementById("sRead");
+  let d=setup(cv,0.5); window.addEventListener("resize",()=>d=setup(cv,0.5));
+  let cur=1.0,last=performance.now(),history=[],flash=0; const FLOOR=0.5;
+  kbtn.onclick=()=>{cur=1.0;};
+  function draw(now){
+    const {ctx,W,H}=d; const leak=parseFloat(L.value),reOn=parseFloat(Rf.value)>0.5;
+    Lv.textContent=leak.toFixed(1)+"×"; Rv.textContent=reOn?"on":"off";
+    const dt=Math.min(0.05,(now-last)/1000); last=now;
+    if(!reduce) cur*=Math.exp(-dt*leak*0.5);
+    if(reOn && cur<FLOOR+0.12){ cur=1.0; flash=1; }
+    flash*=0.92; history.push(cur); if(history.length>200)history.shift();
+    ctx.clearRect(0,0,W,H); gridlines(ctx,W,H);
+    // left: a toroid whose flux brightness ∝ current
+    const cx=W*0.22, cy=H*0.5, R=Math.min(W,H)*0.22, r=R*0.4;
+    ctx.strokeStyle="#3a3320";ctx.lineWidth=2;
+    ctx.beginPath();ctx.arc(cx,cy,R+r,0,Math.PI*2);ctx.stroke();
+    ctx.beginPath();ctx.arc(cx,cy,R-r,0,Math.PI*2);ctx.stroke();
+    const mag=Math.max(0,Math.min(1,cur));
+    for(let k=0;k<10;k++){const a=(k/10)*Math.PI*2+(reduce?0:now/600);
+      const ax=cx+Math.cos(a)*R, ay=cy+Math.sin(a)*R;
+      ctx.fillStyle=`rgba(169,143,224,${0.12+0.6*mag})`;
+      ctx.save();ctx.translate(ax,ay);ctx.rotate(a+Math.PI/2);
+      ctx.beginPath();ctx.moveTo(0,-4);ctx.lineTo(3,3);ctx.lineTo(-3,3);ctx.closePath();ctx.fill();ctx.restore();}
+    if(flash>0.05){ctx.fillStyle=`rgba(224,168,104,${flash*0.4})`;ctx.beginPath();ctx.arc(cx,cy,R+r,0,Math.PI*2);ctx.fill();}
+    ctx.fillStyle=cur>FLOOR?COL.copper:COL.world;ctx.font="bold 14px 'IBM Plex Mono',monospace";ctx.textAlign="center";
+    ctx.fillText(cur>FLOOR?"holding":"fading",cx,cy);
+    ctx.fillStyle=COL.paper;ctx.font="10px 'IBM Plex Mono',monospace";ctx.fillText("½L·I² in the field",cx,cy+R+r+16);
+    // right: decay trace
+    const tx=W*0.46,tw=W*0.48,tyTop=H*0.16,th=H*0.66;
+    ctx.strokeStyle="#3a3320";ctx.lineWidth=1;ctx.strokeRect(tx,tyTop,tw,th);
+    ctx.setLineDash([3,4]);ctx.strokeStyle=COL.worldDim;ctx.beginPath();ctx.moveTo(tx,tyTop+th*(1-FLOOR));ctx.lineTo(tx+tw,tyTop+th*(1-FLOOR));ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle=COL.world;ctx.font="10px 'IBM Plex Mono',monospace";ctx.textAlign="left";ctx.fillText("floor",tx+tw+ -34,tyTop+th*(1-FLOOR)-4);
+    glow(ctx,history,(o,k)=>tx+tw*(k/200),o=>tyTop+th*(1-Math.max(0,Math.min(1,o))),COL.copper,6);
+    ctx.fillStyle=COL.paper;ctx.fillText("current over time →",tx+4,tyTop-4);
+    read.innerHTML = reOn
+      ? `current <b>${(cur*100).toFixed(0)}%</b> · re-drive ON — topped up before it crosses the <span class="worldc">floor</span>. the inertia survives, but only by constant re-driving.`
+      : `current <b>${(cur*100).toFixed(0)}%</b> · re-drive OFF — watch it bleed through the winding resistance and fade. press “kick the current” to reload. forgetting, as heat.`;
+    requestAnimationFrame(draw);
+  } requestAnimationFrame(draw);
+})();
+
+/* ── (8) THE CURRENT SENSOR ── */
+(function(){
+  const cv=document.getElementById("sensor");
+  const A=document.getElementById("senAmp"),F=document.getElementById("senFreq");
+  const Av=document.getElementById("senAval"),Fv=document.getElementById("senFval");
+  const read=document.getElementById("senRead");
+  let d=setup(cv,0.58); window.addEventListener("resize",()=>d=setup(cv,0.58));
+  let outHist=[];
+  function draw(t){
+    const {ctx,W,H}=d; const amp=parseFloat(A.value),freq=parseFloat(F.value);
+    Av.textContent=amp.toFixed(1)+"×"; Fv.textContent=freq.toFixed(1)+"×";
+    ctx.clearRect(0,0,W,H); gridlines(ctx,W,H);
+    const cx=W*0.28, cy=H*0.46, R=Math.min(W,H)*0.2, r=R*0.4;
+    const tt=reduce?0.4:t;
+    const iworld=amp*Math.sin(tt*1.7*freq);          // world's current
+    const di=amp*Math.cos(tt*1.7*freq)*1.7*freq;     // its rate → induced v
+    // core ring
+    ctx.strokeStyle="#3a3320";ctx.lineWidth=2;
+    ctx.beginPath();ctx.arc(cx,cy,R+r,0,Math.PI*2);ctx.stroke();
+    ctx.beginPath();ctx.arc(cx,cy,R-r,0,Math.PI*2);ctx.stroke();
+    // sensing winding (copper) around part of the ring
+    for(let k=0;k<8;k++){const a=-Math.PI*0.4+(Math.PI*0.8)*(k/7);const ox=cx+Math.cos(a)*R,oy=cy+Math.sin(a)*R;
+      ctx.strokeStyle="rgba(111,198,208,.7)";ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(ox,oy,r*1.3,r*0.5,a,0,Math.PI*2);ctx.stroke();}
+    // the WORLD's wire threading the ring (vertical, through the hole)
+    const mag=Math.abs(iworld);
+    ctx.strokeStyle=`rgba(240,132,106,${0.5+0.4*mag})`;ctx.lineWidth=4;
+    ctx.beginPath();ctx.moveTo(cx,cy-R-r-20);ctx.lineTo(cx,cy+R+r+20);ctx.stroke();
+    // current direction dots on the wire
+    const dir=Math.sign(iworld)||1;
+    for(let k=0;k<5;k++){const yy=cy-40+((tt*40*dir)%80)+k*0-0; }
+    const yflow=((tt*60*dir)%120);
+    for(let k=-1;k<3;k++){const yy=cy-R-r-20 + ((yflow+k*40)% (2*(R+r)+40));
+      ctx.fillStyle=`rgba(240,132,106,${0.7*mag+0.2})`;ctx.beginPath();ctx.arc(cx,yy,3,0,Math.PI*2);ctx.fill();}
+    ctx.fillStyle=COL.world;ctx.font="10px 'IBM Plex Mono',monospace";ctx.textAlign="center";
+    ctx.fillText("the world's wire",cx,cy-R-r-26);
+    // circulating flux ∝ world current
+    for(let k=0;k<10;k++){const a=(k/10)*Math.PI*2+(reduce?0:dir*t*0.9);
+      const ax=cx+Math.cos(a)*R, ay=cy+Math.sin(a)*R;
+      ctx.fillStyle=`rgba(169,143,224,${0.15+0.55*mag})`;
+      ctx.save();ctx.translate(ax,ay);ctx.rotate(a+(dir>0?Math.PI/2:-Math.PI/2));
+      ctx.beginPath();ctx.moveTo(0,-4);ctx.lineTo(3,3);ctx.lineTo(-3,3);ctx.closePath();ctx.fill();ctx.restore();}
+    ctx.fillStyle=COL.flux;ctx.fillText("Φ written by the world",cx,cy+R+r+30);
+    // right: induced output voltage
+    const sx=W*0.6,sw=W*0.34,sh=H*0.66,sy=H*0.14;
+    ctx.strokeStyle="#3a3320";ctx.lineWidth=1;ctx.strokeRect(sx,sy,sw,sh);
+    ctx.fillStyle=COL.volt;ctx.font="10px 'IBM Plex Mono',monospace";ctx.textAlign="left";ctx.fillText("induced output v ∝ di/dt",sx+6,sy+12);
+    outHist.push(di); if(outHist.length>140)outHist.shift();
+    const mid=sy+sh*0.5, av=sh*0.3; const vMax=Math.max(...outHist.map(Math.abs),0.5);
+    glow(ctx,outHist,(o,k)=>sx+sw*(k/140),o=>mid-(o/vMax)*av,COL.volt,6);
+    read.innerHTML=`the <span class="worldc">world's current</span> (${amp.toFixed(1)}×) threads the ring → writes a <span class="fl">flux</span> → induces an <span class="vlt">output voltage</span> ∝ its di/dt. you drove nothing. a clamp meter reads a live wire exactly this way — by the field, not by touching it.`;
+    requestAnimationFrame(draw);
+  } requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
